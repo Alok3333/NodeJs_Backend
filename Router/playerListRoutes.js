@@ -11,6 +11,10 @@ router
   .get(playerListController.getPlayerList)
   .post(playerListController.createNewPlayer);
 
-router.route("/:id").get(playerListController.getPlayerWithId);
+router
+  .route("/:id")
+  .get(playerListController.getPlayerWithId)
+  .patch(playerListController.updatePlayerWithId)
+  .delete(playerListController.deletePlayerWithId);
 
 module.exports = router;

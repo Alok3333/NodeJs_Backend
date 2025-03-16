@@ -1,15 +1,16 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const playerRoutes = require("./Router/playerListRoutes");
 
-const PORT = 4001;
+const PORT = process.env.PORT || 4001;
 const app = express();
 
 app.use(express.json());
 
 // Connection to mongoDB
 mongoose
-  .connect("mongodb://127.0.0.1:27017/cricketList")
+  .connect(process.env.MONGODB_URL)
   .then(() => {
     console.log("MongoDB Has Connected!");
   })
