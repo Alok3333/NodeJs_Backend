@@ -64,6 +64,10 @@ exports.createNewPlayer = async (req, res) => {
   try {
     const { name, age, teamName } = req.body;
 
+    if (!name || !age || !teamName) {
+      return res.status(400).send("All fields are required");
+    }
+
     let checkName = await PlayerModel.findOne({ name });
 
     if (checkName) {

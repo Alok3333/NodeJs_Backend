@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cricket</title>
+  </head>
+  <body>
+    <center>
+      <h1>Cricket Register</h1>
+      <form action="/api/v1/list" method="post">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter Player Name"
+        />
+        <input
+          type="number"
+          id="age"
+          name="age"
+          placeholder="Enter Player Age"
+        />
+        <input
+          type="text"
+          id="teamName"
+          name="teamName"
+          placeholder="Enter Player TeamName"
+        />
+        <button type="submit">Submit</button>
+      </form>
+
+      <h2>Player-List</h2>
+      <ul id="playerList"></ul>
+    </center>
+  </body>
+</html>
