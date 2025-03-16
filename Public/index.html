@@ -33,5 +33,29 @@
       <h2>Player-List</h2>
       <ul id="playerList"></ul>
     </center>
+
+    <script>
+      async function fetchPlayerList() {
+        let responses = await fetch("/api/v1/list");
+        let list = await responses.json();
+        let players = list.data.playerlists;
+        // console.log(playerList, "here");
+
+        if (Array.isArray(players)) {
+          let playerList = document.getElementById("playerList");
+
+          players.forEach((player) => {
+            let li = document.createElement("li");
+            li.textContent = `
+            Name: ${player.name}, Age: ${player.age}, Team: ${player.teamName}
+            `;
+
+            playerList.appendChild(li);
+          });
+        }
+      }
+
+      fetchPlayerList();
+    </script>
   </body>
 </html>
